@@ -1,0 +1,25 @@
+### Create Student
+POST http://localhost:9009/api/v1/student
+Content-Type: application/json
+
+{
+    "first_name": "Kaddy",
+    "last_name": "Sowe"
+}
+
+### Get all students
+GET http://localhost:9009/api/v1/student
+
+
+### Create Course
+POST http://localhost:9009/api/v1/course
+Content-Type: application/json
+
+{
+    "course_name": "Java",
+    "course_code": "CPS 200",
+    "student_id": 1
+}
+
+### Get all courses
+GET http://localhost:9009/api/v1/course
