@@ -1,7 +1,6 @@
 import express from "express";
 import sequelize from "./config/config";
-import studentRouter from "./routes/student";
-import courseRouter from "./routes/course";
+import userRouter from "./routes/user";
 
 import morgan from "morgan";
 import dotenv from "dotenv";
@@ -20,8 +19,9 @@ sequelize
   .then(() => console.log("Connected to db successfully"))
   .catch((error: { message: string }) => console.log(error.message));
 
-app.listen(process.env.PORT, () => console.log(`App running on port ${process.env.PORT}`));
+app.listen(process.env.PORT, () =>
+  console.log(`App running on port ${process.env.PORT}`)
+);
 
 // Routes
-app.use("/api/v1/student", studentRouter);
-app.use("/api/v1/course", courseRouter);
+app.use("/api/v1/user", userRouter);

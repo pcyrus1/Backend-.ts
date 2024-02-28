@@ -1,34 +1,34 @@
 import { DataTypes, Model } from "sequelize";
 import sequelize from "../config/config";
 
-interface CourseAttributes {
+interface UserAttributes {
   id?: number;
-  course_name: string;
-  course_code: string;
-  student_id?: number;
+  firstName: string;
+  lastName: string;
+  age?: number;
   createdAt?: Date;
   updatedAt?: Date;
 }
 
-class Course extends Model<CourseAttributes> implements CourseAttributes {
+class User extends Model<UserAttributes> implements UserAttributes {
   public readonly id!: number;
-  public course_name!: string;
-  public course_code!: string;
+  public firstName!: string;
+  public lastName!: string;
   public student_id?: number;
 }
 
-Course.init(
+User.init(
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    course_name: {
+    firstName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    course_code: {
+    lastName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -39,11 +39,11 @@ Course.init(
   },
   {
     sequelize,
-    modelName: "Course",
-    tableName: "course",
+    modelName: "User",
+    tableName: "user",
     freezeTableName: true,
     timestamps: true,
   }
 );
 
-export default Course;
+export default User;
